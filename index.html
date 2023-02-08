@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Memory Game</title>
+            <link rel="stylesheet" href="./style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        </head>
+        <body>       
+            <div class="game">
+                <header class="header">
+                    <h1>Memory Game</h1>
+                    <div class="header_infos">
+                        <p>Highscore : <span id="highscore">0</span></p>
+                        <p class="header_infos_timer"> <span id="timerRef">01 : 00</span></p>
+                    </div>
+                </header>
+                <main class="main">
+                    <div class="main_end overlay">
+                        <div class="main_end_content">
+                            <p>Game Over</p>
+                            <button id="btn_restart" class="btn">Restart</button>
+                        </div>
+                    </div>
+                    <div class="main_start overlay">
+                        <form class="form">
+                            <div class="form_content">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" maxlength="15" title="Entrez votre nom">           
+                            </div>
+                            <button type="submit" id="btn_start" class="btn">Play</button>
+                        </form>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="baboon">
+                            <div class="card_front">
+                                <img src="./assets/img/baboon.jpg" alt="baboon">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="baboon">
+                            <div class="card_front">
+                                <img src="./assets/img/baboon.jpg" alt="baboon">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="dog">
+                            <div class="card_front">
+                                <img src="./assets/img/dog.jpg" alt="dog">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="dog">
+                            <div class="card_front">
+                                <img src="./assets/img/dog.jpg" alt="dog">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="elephant">
+                            <div class="card_front">
+                                <img src="./assets/img/elephant.jpg" alt="elephant">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="elephant">
+                            <div class="card_front">
+                                <img src="./assets/img/elephant.jpg" alt="elephant">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="fish">
+                            <div class="card_front">
+                                <img src="./assets/img/fish.jpg" alt="fish">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="fish">
+                            <div class="card_front">
+                                <img src="./assets/img/fish.jpg" alt="fish">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="lizard">
+                            <div class="card_front">
+                                <img src="./assets/img/lizard.jpg" alt="lizard">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="lizard">
+                            <div class="card_front">
+                                <img src="./assets/img/lizard.jpg" alt="lizard">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="turtle">
+                            <div class="card_front">
+                                <img src="./assets/img/turtle.jpg" alt="turtle">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                    <div class="main_container_card" >
+                        <div class="card" data="turtle">
+                            <div class="card_front">
+                                <img src="./assets/img/turtle.jpg" alt="turtle">
+                            </div>
+                            <div class="card_back"></div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <script src="./app.js"></script>
+        </body>
+    </html>
