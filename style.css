@@ -89,7 +89,7 @@ form{
 }
 
 .main_end_content p{
-    font-size: 6rem;
+    font-size: clamp(3.5rem, 8vw, 6rem);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.715) ;
 }
 
@@ -222,6 +222,9 @@ form{
 
     .main{
         gap: 10px;
+    }
+    .main_end_content{
+        padding: 10px;
     }
     .main_container_card {
         min-height: 100px;
