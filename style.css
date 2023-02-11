@@ -22,9 +22,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1000px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
+    width: 95%;
+    max-width: 900px;
     box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.3),
         inset 5px 5px 5px #413f48;
     background-image: linear-gradient(to top right, #12101f46, #413f48);
@@ -36,14 +37,14 @@ body {
 }
 
 .header h1 {
-    font-size: 8rem;
+    font-size: clamp(4rem, 8vw, 8rem);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.715) ;
 }
 
 .header_infos {
     display: flex;
     justify-content: space-between;
-    font-size: 4rem;
+    font-size: clamp(2rem, 4vw, 4rem);
     padding: 10px 40px;
 }
 
@@ -54,17 +55,13 @@ body {
 }
 
 .main {
-     position: relative;
-    /*display: flex;
-    justify-content: center;
-    
-    flex-wrap: wrap;
-    padding: 10px; */
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    grid-template-columns: repeat(4, 23%);
     padding: 10px;
-gap: 20px;
-   
+    gap: 20px;   
+    width: 100%;
 }
 
 .btn{
@@ -82,7 +79,8 @@ form{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 400px;
+    max-width: 400px;
+    width: 80%;
     height: 150px;
     border-radius: 10px;
     padding: 20px;
@@ -149,14 +147,14 @@ form{
     border-radius: 5px;
     border: none;
     outline: none;
+    width: 100%;
 }
 
 /****** CARD ******/
 .main_container_card {
     position: relative;
-    width: 200px;
-    height: 200px;
     cursor: pointer;
+    min-height: 200px;
     perspective: 2000px;
 }
 
@@ -205,3 +203,27 @@ form{
     outline: 2px solid red;
 }
 
+/****** RESPONSIVE ******/
+
+@media screen and (max-width: 768px) {
+    .header_infos {
+        padding: 10px;
+    }  
+    .main_container_card {
+        min-height: 150px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .game {
+        padding: 5px;
+    }
+
+    .main{
+        gap: 10px;
+    }
+    .main_container_card {
+        min-height: 100px;
+    }
+}

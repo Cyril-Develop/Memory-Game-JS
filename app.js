@@ -11,9 +11,6 @@ let timerRef = document.querySelector('#timerRef');
  
 const allCard = document.querySelectorAll('.main_container_card');
 
-
-
-
 //****** VARIABLES ******//
 let nameChecked = false;
 let firstCard, secondCard;
@@ -197,7 +194,7 @@ if(storage){
         }
     });
     storage.forEach(player => {
-        highscore.innerHTML = ` ${player.name}🏆${player.time}`;
+        highscore.innerHTML = ` ${player.name} <i style='color: gold' class="fa-solid fa-trophy"></i> ${player.time}`;
     });
 }
 
