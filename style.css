@@ -81,9 +81,9 @@ form{
     align-items: center;
     max-width: 400px;
     width: 80%;
-    height: 150px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px 10px 20px;
+    gap: 10px;
     font-size: 2rem;
     background-color: #ffffff56;
 }
@@ -133,7 +133,7 @@ form{
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    color: black;
+    color: #000;
     transition: all 0.2s ease-in-out;
 }
 
@@ -148,6 +148,12 @@ form{
     border: none;
     outline: none;
     width: 100%;
+}
+
+#input_infos{
+    font-size: 1.8rem;
+    text-align: center;
+    color: crimson;
 }
 
 /****** CARD ******/
@@ -204,7 +210,6 @@ form{
 }
 
 /****** RESPONSIVE ******/
-
 @media screen and (max-width: 768px) {
     .header_infos {
         padding: 10px;
@@ -222,11 +227,13 @@ form{
 
     .main{
         gap: 10px;
+        grid-template-columns: repeat(3, 32%);
     }
     .main_end_content{
         padding: 10px;
+        height: 100px;
     }
     .main_container_card {
-        min-height: 100px;
+        min-height: 90px;
     }
 }

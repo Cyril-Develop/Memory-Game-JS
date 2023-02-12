@@ -17,6 +17,7 @@ let firstCard, secondCard;
 let selectedCard = false;
 let cardNumber = 0;
 let [minutes, seconds] = [0,0];
+let lockCard = false;
 
 let currentPlayer = {
     name : '',
@@ -32,7 +33,6 @@ function checkName(e){
 
     formLabel.classList.add('anim');
     
-    //Entre 3 et 15 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés
     if(!/^([A-Za-z|\s]{3,15})?([-]{0,1})?([A-Za-z|\s]{3,15})$/.test(currentPlayer.name)) {
         formInput.classList.add('error');
     } else {
@@ -43,7 +43,10 @@ function checkName(e){
         formInput.classList.remove('error');
         formLabel.classList.remove('anim');
         nameChecked = false;
-    }      
+    }  
+
+    nameChecked ? inputInfos.innerHTML = '' : inputInfos.innerHTML = 'Entre 3 et 15 caractères. Chiffres et caractères spéciaux différents de - non autorisés';
+
 };
   
 function startGame(e){
@@ -66,40 +69,52 @@ function startGame(e){
 
 //****** CARDS ******//
 allCard.forEach(card => {
-    card.addEventListener('click', checkCard);
+    card.addEventListener('click', selectCard);
 });
 
-function checkCard(){
+function selectCard(){
+
+    if(lockCard) return;
     
     this.childNodes[1].classList.toggle('return');
 
     if(!selectedCard){
         firstCard = this;
+        this.removeEventListener('click', selectCard);
         selectedCard = true;
         return
     };
 
     secondCard = this;
     selectedCard = false;
-     
+
     compareData();
 };
 
 function compareData(){
+
+    lockCard = true;
 
     if(firstCard.getAttribute('data') === secondCard.getAttribute('data')){
 
         successMusic.play();
         cardNumber += 2;
 
-        firstCard.removeEventListener('click', checkCard);
-        secondCard.removeEventListener('click', checkCard);
+        firstCard.removeEventListener('click', selectCard);
+        secondCard.removeEventListener('click', selectCard);
+
+        lockCard = false;
 
     } else{
-
+        
         setTimeout(() => {
+
+            firstCard.addEventListener('click', selectCard);
             firstCard.childNodes[1].classList.remove('return');
             secondCard.childNodes[1].classList.remove('return');
+
+            lockCard = false;
+            
         }, 500);
 
     }   
@@ -115,13 +130,13 @@ function displayTime(){
             
         } else if (seconds <= 10){
             seconds = `${0 + seconds}`
-        }
+        };
         seconds--;
 
         if(seconds <= 8){
             clockSong.play();
             timerRef.style.color = 'crimson';
-        }
+        };
         
         let m = "0" + minutes;
         let s = seconds < 10 ? "0" + seconds : seconds;
@@ -139,7 +154,7 @@ function GameOver(timer){
 
         currentPlayer.time = timerRef.innerHTML;
 
-        manageStorage();
+        storageManagement();
 
         clearInterval(timer);
 
@@ -151,7 +166,7 @@ function GameOver(timer){
 };
 
 //****** MANAGEMENT STORAGE ******//
-function manageStorage(){
+function storageManagement(){
     let storage = JSON.parse(localStorage.getItem('player'));
 
     if(!storage){
@@ -177,7 +192,7 @@ function manageStorage(){
     }}
 };
 
-//****** DISPLAY HIGHSCORE ******//
+//****** DISPLAY AND SORT HIGHSCORE ******//
 let storage = JSON.parse(localStorage.getItem('player'));
 
 if(storage){
@@ -212,6 +227,3 @@ function randomCard(){
 };
 
 randomCard();
-    
-    
-        
