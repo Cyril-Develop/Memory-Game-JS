@@ -127,10 +127,7 @@ function displayTime(){
 
         if(seconds == 0){
             seconds = 60;
-            
-        } else if (seconds <= 10){
-            seconds = `${0 + seconds}`
-        };
+        } 
         seconds--;
 
         if(seconds <= 8){
